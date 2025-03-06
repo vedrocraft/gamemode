@@ -11,6 +11,8 @@ public final class Gamemode extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
+
         ServiceManager.registerService(ConfigService.class, new ConfigServiceImpl(this));
 
         new LiteCommandUtil().create("gamemode",
