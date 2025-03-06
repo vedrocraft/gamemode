@@ -29,6 +29,7 @@ public class GamemodeCommand {
         gamemodeMap.put(3, GameMode.ADVENTURE);
     }
 
+    @Async
     @Execute(name = "reload")
     @Permission("gamemode.reload")
     void reload(@Context CommandSender sender) {
