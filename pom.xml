@@ -17,6 +17,7 @@
     </properties>
 
     <build>
+        <finalName>gamemode</finalName>
         <defaultGoal>clean package</defaultGoal>
         <plugins>
             <plugin>
