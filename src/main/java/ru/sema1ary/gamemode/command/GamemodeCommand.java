@@ -29,7 +29,6 @@ public class GamemodeCommand {
         gamemodeMap.put(3, GameMode.ADVENTURE);
     }
 
-    @Async
     @Execute(name = "reload")
     @Permission("gamemode.reload")
     void reload(@Context CommandSender sender) {
@@ -37,7 +36,6 @@ public class GamemodeCommand {
         sender.sendMessage(miniMessage.deserialize(configService.get("reload-message")));
     }
 
-    @Async
     @Execute
     @Permission("gamemode.use")
     void execute(@Context Player sender, @Arg("режим") GameMode gameMode) {
@@ -52,7 +50,6 @@ public class GamemodeCommand {
         ));
     }
 
-    @Async
     @Execute
     @Permission("gamemode.use")
     void execute(@Context Player sender, @Arg("режим") int id) {
@@ -68,7 +65,6 @@ public class GamemodeCommand {
         ));
     }
 
-    @Async
     @Execute
     @Permission("gamemode.other")
     void execute(@Context CommandSender sender, @Arg("игрок") Player target
