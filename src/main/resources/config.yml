@@ -1,0 +1,5 @@
+configuration:
+  reload-message: '<green>Плагин перезапущен.'
+
+  change-message: '<green>Вы изменили режим игры на: {gamemode}'
+  target-change-message: '<green>Вы изменили режим игры игрока {player} на {gamemode}'
