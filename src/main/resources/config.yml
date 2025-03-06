@@ -1,5 +1,6 @@
 configuration:
   reload-message: '<green>Плагин перезапущен.'
 
+  no-perms-message: '<red>У вас нет прав.'
   change-message: '<green>Вы изменили режим игры на: {gamemode}'
   target-change-message: '<green>Вы изменили режим игры игрока {player} на {gamemode}'

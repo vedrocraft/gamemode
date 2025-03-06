@@ -39,7 +39,13 @@ public class GamemodeCommand {
 
     @Async
     @Execute
+    @Permission("gamemode.use")
     void execute(@Context Player sender, @Arg("режим") GameMode gameMode) {
+        if(!sender.hasPermission("gamemode" + gameMode.toString())) {
+            sender.sendMessage(miniMessage.deserialize(configService.get("no-perms-message")));
+            return;
+        }
+
         sender.setGameMode(gameMode);
         sender.sendMessage(miniMessage.deserialize(
                ((String) configService.get("change-message")).replace("{gamemode}", gameMode.toString())
@@ -48,8 +54,14 @@ public class GamemodeCommand {
 
     @Async
     @Execute
+    @Permission("gamemode.use")
     void execute(@Context Player sender, @Arg("режим") int id) {
         GameMode gameMode = gamemodeMap.get(id);
+        if(!sender.hasPermission("gamemode" + gameMode.toString())) {
+            sender.sendMessage(miniMessage.deserialize(configService.get("no-perms-message")));
+            return;
+        }
+
         sender.setGameMode(gameMode);
         sender.sendMessage(miniMessage.deserialize(
                 ((String) configService.get("change-message")).replace("{gamemode}", gameMode.toString())
