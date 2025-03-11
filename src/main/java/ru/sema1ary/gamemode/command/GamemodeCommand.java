@@ -10,7 +10,7 @@ import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import ru.vidoskim.bukkit.service.ConfigService;
+import ru.sema1ary.vedrocraftapi.service.ConfigService;
 
 import java.util.HashMap;
 import java.util.Map;
