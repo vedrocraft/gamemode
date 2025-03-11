@@ -40,7 +40,7 @@ public class GamemodeCommand {
     @Execute
     @Permission("gamemode.use")
     void execute(@Context Player sender, @Arg("режим") GameMode gameMode) {
-        if(!sender.hasPermission("gamemode" + gameMode.toString())) {
+        if(!sender.hasPermission("gamemode." + gameMode.toString())) {
             sender.sendMessage(miniMessage.deserialize(configService.get("no-perms-message")));
             return;
         }
@@ -55,7 +55,7 @@ public class GamemodeCommand {
     @Permission("gamemode.use")
     void execute(@Context Player sender, @Arg("режим") int id) {
         GameMode gameMode = gamemodeMap.get(id);
-        if(!sender.hasPermission("gamemode" + gameMode.toString())) {
+        if(!sender.hasPermission("gamemode." + gameMode.toString())) {
             sender.sendMessage(miniMessage.deserialize(configService.get("no-perms-message")));
             return;
         }
