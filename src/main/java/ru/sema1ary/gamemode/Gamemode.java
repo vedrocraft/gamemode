@@ -1,7 +1,9 @@
 package ru.sema1ary.gamemode;
 
+import org.bukkit.GameMode;
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.sema1ary.gamemode.command.GamemodeCommand;
+import ru.sema1ary.gamemode.command.argument.GamemodeArgument;
 import ru.sema1ary.vedrocraftapi.command.LiteCommandBuilder;
 import ru.sema1ary.vedrocraftapi.service.ConfigService;
 import ru.sema1ary.vedrocraftapi.service.ServiceManager;
@@ -17,6 +19,7 @@ public final class Gamemode extends JavaPlugin {
 
         LiteCommandBuilder.builder()
                 .commands(new GamemodeCommand(ServiceManager.getService(ConfigService.class)))
+                .argument(GameMode.class, new GamemodeArgument())
                 .build();
     }
 

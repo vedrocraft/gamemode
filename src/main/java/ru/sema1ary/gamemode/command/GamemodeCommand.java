@@ -12,21 +12,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import ru.sema1ary.vedrocraftapi.service.ConfigService;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Command(name = "gamemode", aliases = {"gm"})
 public class GamemodeCommand {
     private final MiniMessage miniMessage = MiniMessage.miniMessage();
     private final ConfigService configService;
-    private final Map<Integer, GameMode> gamemodeMap = new HashMap<>();
 
     public GamemodeCommand(ConfigService configService) {
         this.configService = configService;
-        gamemodeMap.put(0, GameMode.SURVIVAL);
-        gamemodeMap.put(1, GameMode.CREATIVE);
-        gamemodeMap.put(2, GameMode.ADVENTURE);
-        gamemodeMap.put(3, GameMode.SPECTATOR);
     }
 
     @Async
@@ -52,36 +44,9 @@ public class GamemodeCommand {
     }
 
     @Execute
-    @Permission("gamemode.use")
-    void execute(@Context Player sender, @Arg("режим") int id) {
-        GameMode gameMode = gamemodeMap.get(id);
-        if(!sender.hasPermission("gamemode." + gameMode.toString())) {
-            sender.sendMessage(miniMessage.deserialize(configService.get("no-perms-message")));
-            return;
-        }
-
-        sender.setGameMode(gameMode);
-        sender.sendMessage(miniMessage.deserialize(
-                ((String) configService.get("change-message")).replace("{gamemode}", gameMode.toString())
-        ));
-    }
-
-    @Execute
     @Permission("gamemode.other")
     void execute(@Context CommandSender sender, @Arg("игрок") Player target
             , @Arg("режим") GameMode gameMode) {
-        target.setGameMode(gameMode);
-        sender.sendMessage(miniMessage.deserialize(
-                ((String) configService.get("target-change-message")).replace("{gamemode}", gameMode.toString())
-                        .replace("{player}", target.getName())
-        ));
-    }
-
-    @Execute
-    @Permission("gamemode.other")
-    void execute(@Context Player sender, @Arg("игрок") Player target
-            , @Arg("режим") int id) {
-        GameMode gameMode = gamemodeMap.get(id);
         target.setGameMode(gameMode);
         sender.sendMessage(miniMessage.deserialize(
                 ((String) configService.get("target-change-message")).replace("{gamemode}", gameMode.toString())
