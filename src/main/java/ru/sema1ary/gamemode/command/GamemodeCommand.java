@@ -77,7 +77,6 @@ public class GamemodeCommand {
         ));
     }
 
-    @Async
     @Execute
     @Permission("gamemode.other")
     void execute(@Context Player sender, @Arg("игрок") Player target
