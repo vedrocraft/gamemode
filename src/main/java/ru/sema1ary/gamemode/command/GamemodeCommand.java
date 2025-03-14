@@ -25,8 +25,8 @@ public class GamemodeCommand {
         this.configService = configService;
         gamemodeMap.put(0, GameMode.SURVIVAL);
         gamemodeMap.put(1, GameMode.CREATIVE);
-        gamemodeMap.put(2, GameMode.SPECTATOR);
-        gamemodeMap.put(3, GameMode.ADVENTURE);
+        gamemodeMap.put(2, GameMode.ADVENTURE);
+        gamemodeMap.put(3, GameMode.SPECTATOR);
     }
 
     @Async
