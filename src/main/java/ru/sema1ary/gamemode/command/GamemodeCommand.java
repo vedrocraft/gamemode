@@ -6,20 +6,18 @@ import dev.rollczi.litecommands.annotations.command.Command;
 import dev.rollczi.litecommands.annotations.context.Context;
 import dev.rollczi.litecommands.annotations.execute.Execute;
 import dev.rollczi.litecommands.annotations.permission.Permission;
+import lombok.RequiredArgsConstructor;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import ru.sema1ary.vedrocraftapi.service.ConfigService;
 
+@RequiredArgsConstructor
 @Command(name = "gamemode", aliases = {"gm"})
 public class GamemodeCommand {
     private final MiniMessage miniMessage = MiniMessage.miniMessage();
     private final ConfigService configService;
-
-    public GamemodeCommand(ConfigService configService) {
-        this.configService = configService;
-    }
 
     @Async
     @Execute(name = "reload")
